@@ -1,0 +1,146 @@
+/* Contenedor del sidebar */
+.sidebar {
+  transform-origin: left;
+  width: 14rem;
+  height: 100vh;
+  background-color: #f4f6f6;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  justify-content: center; /* Para botón a la izquierda y logo a la derecha */
+  width: 100%;
+}
+/* Sidebar colapsado */
+.sidebar.collapsed {
+  width: 3.5rem;
+  min-width: 3.5rem;
+  padding: 1rem 0.5rem;
+  align-items: center;
+}
+
+/* Enlaces del menú */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.1rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: padding 0.3s ease, gap 0.3s ease, background-color 0.2s ease;
+}
+
+.sidebar.collapsed .sidebar-link {
+  justify-content: center;
+}
+
+.sidebar-link span {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.sidebar.collapsed .sidebar-link span {
+  opacity: 0;
+}
+
+/* Hover y activo */
+.sidebar-link:hover {
+  background-color: #D9D9D9;
+}
+
+.sidebar-link.active {
+  background-color: #458899;
+  color: white;
+}
+
+/* Logo */
+.sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0rem;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-logo {
+  opacity: 0;
+}
+
+.sidebar-logo img {
+  width: 7rem;
+  height: auto;
+}
+
+/* Navegación del menú */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Botón hamburguesa */
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+  cursor: pointer;
+  color: #333;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #f8d7da;
+  color: #a94442;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  .sidebar.collapsed {
+    align-items: center;
+  }
+
+  .sidebar:not(.collapsed) {
+    align-items: flex-start;
+  }
+
+  .sidebar-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+}

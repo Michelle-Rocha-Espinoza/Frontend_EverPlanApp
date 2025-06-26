@@ -1,0 +1,144 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: #f4f4f4;
+  overflow-y: auto;
+  padding: 1rem;
+  align-items: flex-start;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 25rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.logo {
+  width: 10rem;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.login-form h1 {
+  color: #435465;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: -3rem;
+}
+
+.login-form label {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4A4853;
+}
+
+.login-form input,
+.login-form button {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+}
+
+.login-form input {
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.login-form button {
+  margin-top: 1rem;
+  background-color: #AC6C8E;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.login-form button:hover {
+  background-color: #975974;
+}
+
+.login-form .extras {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.olvido {
+  color: #5FA666;
+  text-decoration: none;
+}
+
+.olvido:hover {
+  text-decoration: underline;
+}
+
+.registro {
+  color: #458899;
+  text-decoration: none;
+}
+
+.registro:hover {
+  text-decoration: underline;
+}
+
+.volver-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+}
+
+.volver {
+  color: #458899;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.volver:hover {
+  text-decoration: underline;
+  transform: translateX(-3px);
+}
+
+/* RESPONSIVO: cambia a centro y más pequeño en pantallas angostas */
+@media (max-width: 600px) {
+  .volver-wrapper {
+    justify-content: center;
+  }
+
+  .volver {
+    font-size: 1rem;
+  }
+}
+
+.login-form footer {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #4A4853;
+  text-align: center;
+}

@@ -1,0 +1,564 @@
+/* Estilos generales */
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    background-color: #E6EDF0; /* color-claro */
+    margin: 0;
+    padding: 0;
+}
+/* === NAVBAR GENERAL === */
+.navbar {
+  background-color: #C6B2BE;
+  padding: 0 0.5rem;
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+  z-index: 1030;
+}
+
+.navbar .container-fluid {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  max-width: 100%;
+}
+
+/* === LOGO === */
+.logo-buho {
+  height: 4rem;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo-buho:hover {
+  transform: scale(1.05);
+}
+
+/* === MARCA TEXTO (EVERPLANAPP) === */
+.marca-navbar {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #2B3240;
+  letter-spacing: 0.03rem;
+  transition: color 0.3s ease;
+  margin-left: 1rem;
+}
+
+.marca-navbar:hover {
+  color: #5A4A5F;
+}
+
+/* === MENÚ DE ENLACES === */
+.navbar-nav.navbar-enlaces {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 62rem) {
+  .navbar-nav.navbar-enlaces {
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 1;
+    margin-bottom: 0;
+  }
+}
+
+.nav-link {
+  font-size: 1rem;
+  color: #292929;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #5A4A5F;
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0.125rem;
+  bottom: 0;
+  left: 0;
+  background-color: #5A4A5F;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* === COLAPSABLE EN PANTALLAS GRANDES === */
+@media (min-width: 62rem) {
+  .collapse.navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* === ACCIONES (botón e ícono login) === */
+.acciones-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 62rem) {
+  .acciones-navbar {
+    margin-top: 0;
+    justify-content: flex-end;
+  }
+}
+
+/* === BOTÓN INSCRÍBETE === */
+.btn-unete {
+  background-color: #77B876;
+  color: white;
+  border: none;
+  border-radius: 0.3125rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-unete:hover {
+  background-color: #77B876;
+  transform: translateY(-2px);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+/* === ÍCONO DE LOGIN === */
+.login {
+  height: 2.5rem;
+  width: 2.5rem;
+  transition: transform 0.3s ease;
+  margin-left: 1rem;
+}
+
+.login:hover {
+  transform: scale(1.1);
+}
+
+/* === ENLACE ACTIVO === */
+.nav-item.active .nav-link {
+  font-weight: 600;
+}
+
+.nav-item.active .nav-link::after {
+  width: 100%;
+}
+
+/* === llamado a la accion === */
+
+.cta-section {
+  position: relative;
+  padding: 40px 20px;
+  text-align: center;
+  overflow: hidden;
+  background: none; /* sin fondo */
+}
+.cta-content.py-5 {
+  padding-top: 1rem !important; /* Reduce el padding superior */
+  padding-bottom: 3rem !important; /* Puedes dejar el inferior más amplio si quieres */
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+  text-shadow: none; /* sin sombra */
+}
+
+.cta-logo {
+  width: 120px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  animation: fadeInUp 1s ease forwards;
+  color: #5A4A5F;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  animation: fadeInUp 1.5s ease forwards;
+  color: #4A4853;
+}
+
+
+/* Hero Section */
+.hero {
+    padding: 60px 20px 40px;
+    text-align: center;
+    background-color: #E6EDF0;
+}
+
+.hero img {
+    max-width: 280px;
+    height: auto;
+}
+
+.hero h1, .hero h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4a4853;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #4a4853;
+}
+
+/* Capacidad Section */
+.capacidad {
+  padding-top: 3rem;     
+  padding-bottom: 3rem;  
+}
+
+
+.card-capacidad {
+    background-color: #D0DFE2;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-capacidad h5 {
+    color: #4a4853;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.card-capacidad p {
+    font-size: 0.95rem;
+    color: #4a4853;
+}
+
+/* RESPONSIVE: mejora tipografía y espaciado en móviles */
+@media (max-width: 768px) {
+    .card-capacidad h5 {
+        font-size: 1rem;
+    }
+    .card-capacidad p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-capacidad {
+        padding: 15px;
+    }
+
+    .card-capacidad h5 {
+        font-size: 0.95rem;
+    }
+
+    .card-capacidad p {
+        font-size: 0.85rem;
+    }
+}
+
+/* === Carrusel de Funcionalidades Estilo Celular === */
+#funcionalidades {
+    background-color: #e3dfde;
+    padding: 4rem 0;
+    position: relative;
+}
+
+#funcionalidades .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #4a4853;
+    margin-bottom: 2rem;
+}
+
+.carousel-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    background-color: #f9f9f9;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    gap: 2rem;
+}
+
+.carousel-slide img {
+    width: 250px;
+    max-height: 450px;
+    object-fit: contain;
+}
+
+.carousel-slide h3 {
+    font-size: 1.7rem;
+    color: #458899;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.carousel-slide p {
+    font-size: 1rem;
+    color: #62616f;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.carousel-slide ul {
+    padding-left: 1.2rem;
+}
+
+.carousel-slide ul li {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 2rem; /* más separación del borde */
+  z-index: 3;
+}
+
+.carousel-buttons button {
+  background-color: #cfbbc6;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-buttons button:hover {
+  background-color: #ac6c8e;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #5a4a5f;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .carousel-slide {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .carousel-slide img {
+        width: 180px;
+    }
+
+    .carousel-slide h3 {
+        font-size: 1.4rem;
+    }
+
+    .carousel-slide p,
+    .carousel-slide ul li {
+        font-size: 0.95rem;
+    }
+}
+
+    /* Transición suave entre slides */
+    
+.carousel-item {
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+    /* === Otros ajustes generales === */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .btn-unete {
+        padding: 6px 16px;
+        font-size: 0.9rem;
+    }
+
+    .hero h1, .hero h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* mision y vision*/
+
+#mision-vision {
+  scroll-margin-top: 80px;
+}
+
+#mision-vision .bg-white {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#mision-vision .bg-white:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+}
+
+.bg-mision {
+  background-color: #E3F2FD; /* Azul clarito */
+}
+
+.bg-vision {
+  background-color: #E8F5E9; /* Verde clarito */
+}
+
+/* SOBRE NOSTROS*/
+
+
+.img-uniforme {
+    width: 200px;
+    height: 300px;
+    object-fit: cover; /* Corta para encajar, útil si tienen proporciones distintas */
+    object-position: center top; /* Centra la cara o cuerpo */
+    border-radius: 10px;
+}
+.logo-equipo {
+    width: 150px;        
+    height: auto;
+    margin-top: 20px;    
+    transition: transform 0.3s ease;
+}
+
+.logo-equipo:hover {
+    transform: scale(1.1);
+}
+
+/* Parte de contacto */
+.footer {
+    background-color: #5A4A5F; /* Color que combine con tu navbar */
+    color: #fff;
+    padding: 3rem 0 1rem;
+    font-size: 0.95rem;
+}
+
+.footer-logo {
+    width: 120px;
+    margin: 0 auto 1rem auto; /* Centra horizontalmente */
+    display: block;
+}
+
+.footer-title {
+    color: #C6B2BE; /* Color claro/accent */
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+.footer-links li, .footer-contact li {
+    margin-bottom: 0.6rem;
+    list-style: none;
+}
+
+.footer-links a, .footer-contact a {
+    color: #E0D8DE;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #77B876; /* Color de tu botón */
+    text-decoration: underline;
+}
+
+.footer-link {
+    color: #E0D8DE;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link-visual {
+    color: #E0D8DE;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-link-visual::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #77B876;
+    transition: width 0.3s ease;
+}
+
+.footer-link-visual:hover {
+    color: #77B876;
+    transform: translateY(-2px);
+}
+
+.footer-link-visual:hover::after {
+    width: 100%;
+}
+.footer-contact {
+    padding-left: 0;  /* Elimina la sangría indeseada */
+    margin: 0;        /* Asegura que no haya desplazamiento adicional */
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.3rem;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: #C6B2BE;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+}
