@@ -181,18 +181,18 @@ function Landing() {
       <section id="mision-vision" className="py-5">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-md-6 mb-4" data-aos="fade-right">
+            <div className="col-md-6 mb-4">
               <div className="p-4 bg-mision shadow rounded-4">
                 <i className="bi bi-bullseye text-primary fs-1 mb-3"></i>
                 <h3 className="text-primary">Misión</h3>
-                <p>Nuestra misión es brindar una plataforma inclusiva y accesible...</p>
+                <p>Diseñar una app inclusiva que facilite la organización de tareas, clases y rutinas, con herramientas de apoyo emocional y recordatorios visuales, para fomentar la autonomía y el bienestar de personas neurodivergentes en su vida académica.</p>
               </div>
             </div>
             <div className="col-md-6 mb-4" data-aos="fade-left">
               <div className="p-4 bg-vision shadow rounded-4">
                 <i className="bi bi-eye text-success fs-1 mb-3"></i>
                 <h3 className="text-success">Visión</h3>
-                <p>Aspiramos a convertirnos en la plataforma educativa de referencia...</p>
+                <p>Ser la plataforma líder en Latinoamérica que impulsa la autonomía de estudiantes neurodivergentes a través de tecnología inclusiva, personalizada y diseñada para apoyar su organización, aprendizaje y bienestar integral.</p>
               </div>
             </div>
           </div>
@@ -207,7 +207,7 @@ function Landing() {
           { name: 'Michelle Rocha', img: 'michelle.jpg', desc: 'Desarrolladora Frontend centrada en accesibilidad y diseño responsivo.', logo: 'frontend.png', reverse: true },
           { name: 'Alan Mac-kay', img: 'alan_2.jpg', desc: 'Ingeniero DevOps enfocado en integración continua y despliegue eficiente.', logo: 'DevOps.png' }
         ].map(({ name, img, desc, logo, reverse }, idx) => (
-          <div className={`row align-items-center mb-5 ${reverse ? 'flex-row-reverse' : ''}`} data-aos="fade-up" key={idx}>
+          <div className={`row align-items-center mb-5 ${reverse ? 'flex-row-reverse' : ''}`} key={idx}>
             <div className="col-md-4 text-center">
               <img src={`/${img}`} alt={name} className="img-uniforme shadow" />
             </div>

@@ -6,7 +6,7 @@ import Landing from './components/Landing';
 import MainLayout from './layout/MainLayout';
 import Tareas from './pages/Tareas';
 
-// Páginas restantes como placeholders
+// Páginas internas como placeholders
 const Perfil = () => <div>Perfil</div>;
 const Horario = () => <div>Horario Personal</div>;
 const Pictogramas = () => <div>Pictogramas</div>;
@@ -19,13 +19,15 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Rutas públicas */}
-        <Route path="/landing" element={<Landing />} />
+        {/* ✅ Ruta principal pública: Landing */}
+        <Route path="/" element={<Landing />} />
+
+        {/* Rutas públicas adicionales */}
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
 
-        {/* Rutas protegidas o internas de la app */}
-        <Route path="/" element={<MainLayout />}>
+        {/* ✅ Rutas protegidas: agrupadas bajo /app */}
+        <Route path="/app" element={<MainLayout />}>
           <Route index element={<Navigate to="tareas" />} />
           <Route path="perfil" element={<Perfil />} />
           <Route path="tareas" element={<Tareas />} />
@@ -36,10 +38,12 @@ function App() {
           <Route path="sugerencias" element={<Sugerencias />} />
           <Route path="legal" element={<Legal />} />
         </Route>
+
+        {/* Ruta no encontrada opcional */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-

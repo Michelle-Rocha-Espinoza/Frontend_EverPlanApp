@@ -26,7 +26,7 @@ function Login() {
 
     // Guardar token para futuras peticiones (ej: en localStorage)
     localStorage.setItem('token', token);
-    navigate('/Tareas'); // o redirige a donde quieras después del login
+    navigate('/app/Tareas'); // o redirige a donde quieras después del login
 
   } catch (error) {
     console.error('Error al iniciar sesión:', error.response?.data || error.message);
@@ -75,7 +75,7 @@ function Login() {
           Una aplicación para organizar tu vida diaria
         </footer>
         <div className="volver-wrapper">
-            <Link to="/landing" className="volver">◀ Volver</Link>
+            <Link to="/app/landing" className="volver">◀ Volver</Link>
         </div>
         
 

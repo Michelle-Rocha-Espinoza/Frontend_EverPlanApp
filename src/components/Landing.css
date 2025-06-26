@@ -457,13 +457,7 @@ body {
     width: 150px;        
     height: auto;
     margin-top: 20px;    
-    transition: transform 0.3s ease;
 }
-
-.logo-equipo:hover {
-    transform: scale(1.1);
-}
-
 /* Parte de contacto */
 .footer {
     background-color: #5A4A5F; /* Color que combine con tu navbar */
@@ -541,8 +535,11 @@ body {
 
 .social-icons {
     display: flex;
+    justify-content: center; /* ⬅ Centra horizontalmente */
+    align-items: center;
     gap: 1rem;
 }
+
 
 .social-icons a {
     color: white;
