@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import './Tareas.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function Tareas() {
   const [fecha, setFecha] = useState(new Date());
   const [tareas, setTareas] = useState([]);
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  const [vista, setVista] = useState('dia'); 
+  const [vista, setVista] = useState('dia');
   const [mostrarMenuTarea, setMostrarMenuTarea] = useState(false);
   const [tareaSeleccionada, setTareaSeleccionada] = useState(null);
   const [editandoTarea, setEditandoTarea] = useState(null);
@@ -22,7 +24,7 @@ export default function Tareas() {
   const cargarTareas = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:8000/api/tareas/listar-tareas/', {
+      const res = await fetch(`${API_URL}/api/tareas/listar-tareas/`, {
         headers: { Authorization: `Token ${token}` }
       });
       if (res.ok) {
@@ -70,10 +72,8 @@ export default function Tareas() {
     }));
   };
 
-
   const handleGuardar = async () => {
     try {
-      // Validación: la fecha de inicio no puede ser mayor que la de fin
       if (nuevaTarea.fecha_hora_inicio && nuevaTarea.fecha_hora_fin) {
         const inicio = new Date(`${nuevaTarea.fecha_hora_inicio}T00:00:00`);
         const fin = new Date(`${nuevaTarea.fecha_hora_fin}T00:00:00`);
@@ -89,13 +89,11 @@ export default function Tareas() {
       let finUTC = null;
 
       if (nuevaTarea.todo_el_dia) {
-        // Si es "todo el día", agregamos T00:00 como hora local
         inicioUTC = new Date(`${nuevaTarea.fecha_hora_inicio}T00:00:00`);
         if (nuevaTarea.fecha_hora_fin) {
           finUTC = new Date(`${nuevaTarea.fecha_hora_fin}T00:00:00`).toISOString();
         }
       } else {
-        // Si tiene hora, convertimos correctamente a UTC
         const inicioLocal = new Date(nuevaTarea.fecha_hora_inicio);
         inicioUTC = new Date(inicioLocal.getTime() - inicioLocal.getTimezoneOffset() * 60000);
         if (nuevaTarea.fecha_hora_fin) {
@@ -103,21 +101,6 @@ export default function Tareas() {
           finUTC = new Date(finLocal.getTime() - finLocal.getTimezoneOffset() * 60000).toISOString();
         }
       }
-
-      if (nuevaTarea.fecha_hora_inicio && nuevaTarea.fecha_hora_fin) {
-        const inicio = nuevaTarea.todo_el_dia
-          ? new Date(`${nuevaTarea.fecha_hora_inicio}T00:00:00`)
-          : new Date(nuevaTarea.fecha_hora_inicio);
-        const fin = nuevaTarea.todo_el_dia
-          ? new Date(`${nuevaTarea.fecha_hora_fin}T00:00:00`)
-          : new Date(nuevaTarea.fecha_hora_fin);
-
-        if (inicio > fin) {
-          alert('La fecha de inicio no puede ser posterior a la fecha de fin.');
-          return;
-        }
-      }
-
 
       const body = {
         titulo: nuevaTarea.titulo,
@@ -133,8 +116,8 @@ export default function Tareas() {
       };
 
       const url = editandoTarea
-        ? `http://localhost:8000/api/tareas/update-tarea/${editandoTarea}/`
-        : 'http://localhost:8000/api/tareas/crear-tarea/';
+        ? `${API_URL}/api/tareas/update-tarea/${editandoTarea}/`
+        : `${API_URL}/api/tareas/crear-tarea/`;
 
       const res = await fetch(url, {
         method: editandoTarea ? 'PATCH' : 'POST',
@@ -171,12 +154,11 @@ export default function Tareas() {
     }
   };
 
-
   const toggleCompletado = async (id) => {
     const token = localStorage.getItem('token');
     const tarea = tareas.find(t => t.id === id);
     try {
-      const res = await fetch(`http://localhost:8000/api/tareas/update-tarea/${id}/`, {
+      const res = await fetch(`${API_URL}/api/tareas/update-tarea/${id}/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -192,20 +174,20 @@ export default function Tareas() {
     const token = localStorage.getItem('token');
     if (!window.confirm('¿Estás seguro de eliminar esta tarea?')) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/tareas/delete-tarea/${id}/`, {
+      const res = await fetch(`${API_URL}/api/tareas/delete-tarea/${id}/`, {
         method: 'DELETE',
         headers: { Authorization: `Token ${token}` }
       });
       if (res.ok) setTareas((prev) => prev.filter((t) => t.id !== id));
     } catch {}
   };
+
   const formatearLocal = (fechaObj) => {
     const y = fechaObj.getFullYear();
     const m = (fechaObj.getMonth() + 1).toString().padStart(2, '0');
     const d = fechaObj.getDate().toString().padStart(2, '0');
     return `${y}-${m}-${d}`;
   };
-
   return (
     <div className="horario-container">
       <div className="horario-header">
@@ -305,11 +287,7 @@ export default function Tareas() {
         <button className="btn-agregar" onClick={() => {
           const ahora = new Date();
           const unaHoraDespues = new Date(ahora.getTime() + 60 * 60 * 1000);
-
-          const formatoInput = (fecha) => {
-            const off = fecha.getTimezoneOffset() * 60000;
-            return new Date(fecha.getTime() - off).toISOString().slice(0, 16); // YYYY-MM-DDTHH:MM
-          };
+          const formatoInput = (fecha) => fecha.toISOString().slice(0, 16); // yyyy-MM-ddTHH:mm
 
           setNuevaTarea({
             titulo: '',

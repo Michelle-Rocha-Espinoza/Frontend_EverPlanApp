@@ -7,7 +7,6 @@ import './Landing.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from 'react-router-dom';
 
-
 function Landing() {
   useEffect(() => {
     AOS.init({
@@ -25,10 +24,10 @@ function Landing() {
       <nav className="navbar navbar-expand-lg sticky-top">
         <div className="container-fluid">
           {/* Logo + Marca */}
-          <a className="navbar-brand d-flex align-items-center" href="#">
+          <Link className="navbar-brand d-flex align-items-center" to="/">
             <img src="/logo2.png" alt="Logo Búho" className="logo-buho" />
             <span className="marca-navbar">EverPlanApp</span>
-          </a>
+          </Link>
 
           {/* Botón hamburguesa */}
           <button

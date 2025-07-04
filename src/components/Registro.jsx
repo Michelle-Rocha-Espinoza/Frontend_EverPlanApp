@@ -4,6 +4,7 @@ import './Registro.css';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Registro() {
   const navigate = useNavigate();
@@ -35,8 +36,8 @@ function Registro() {
     }
 
     console.log('Datos enviados:', formData);
-  try {
-      const response = await axios.post('http://localhost:8000/api/auth/registro/', {
+    try {
+      const response = await axios.post(`${API_URL}/api/auth/registro/`, {
         username: formData.username,
         email: formData.email,
         password: formData.password,
@@ -45,12 +46,11 @@ function Registro() {
 
       console.log('Registro exitoso:', response.data);
       alert('Cuenta registrada correctamente');
-
+      navigate('/login');
     } catch (error) {
       console.error('Error al registrar:', error.response?.data || error.message);
       alert('Error del servidor: ' + JSON.stringify(error.response?.data || error.message));
     }
-
   };
 
   return (
@@ -69,7 +69,6 @@ function Registro() {
 
             <label htmlFor="email">Correo electrónico</label>
             <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
-            
           </div>
 
           <div className="col-right">
@@ -81,13 +80,12 @@ function Registro() {
 
             <label htmlFor="confirmPassword">Confirmar Contraseña</label>
             <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
-    
           </div>
         </div>
 
         <button type="submit">Registrarse</button>
         <div className="volver-wrapper">
-            <Link to="/login" className="volverregistro">◀ Volver</Link>
+          <Link to="/login" className="volverregistro">◀ Volver</Link>
         </div>
 
         <footer>Organiza tu vida académica con EverPlanApp</footer>
@@ -97,3 +95,4 @@ function Registro() {
 }
 
 export default Registro;
+
