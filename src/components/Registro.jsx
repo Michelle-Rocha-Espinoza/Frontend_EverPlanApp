@@ -67,9 +67,8 @@ function Registro() {
             <label htmlFor="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required />
 
-            <label htmlFor="password">Contraseña</label>
-            <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
-
+            <label htmlFor="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
             
           </div>
 
@@ -77,8 +76,8 @@ function Registro() {
             <label htmlFor="username">Nombre de Usuario</label>
             <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
 
-            <label htmlFor="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+            <label htmlFor="password">Contraseña</label>
+            <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
 
             <label htmlFor="confirmPassword">Confirmar Contraseña</label>
             <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} required />
