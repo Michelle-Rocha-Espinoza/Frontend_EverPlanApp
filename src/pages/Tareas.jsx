@@ -89,23 +89,21 @@ export default function Tareas() {
       let finUTC = null;
 
       if (nuevaTarea.todo_el_dia) {
-        inicioUTC = new Date(`${nuevaTarea.fecha_hora_inicio}T00:00:00`);
+        inicioUTC = new Date(`${nuevaTarea.fecha_hora_inicio}T00:00:00`).toISOString();
         if (nuevaTarea.fecha_hora_fin) {
           finUTC = new Date(`${nuevaTarea.fecha_hora_fin}T00:00:00`).toISOString();
         }
       } else {
-        const inicioLocal = new Date(nuevaTarea.fecha_hora_inicio);
-        inicioUTC = new Date(inicioLocal.getTime() - inicioLocal.getTimezoneOffset() * 60000);
+        inicioUTC = new Date(nuevaTarea.fecha_hora_inicio).toISOString();
         if (nuevaTarea.fecha_hora_fin) {
-          const finLocal = new Date(nuevaTarea.fecha_hora_fin);
-          finUTC = new Date(finLocal.getTime() - finLocal.getTimezoneOffset() * 60000).toISOString();
+          finUTC = new Date(nuevaTarea.fecha_hora_fin).toISOString();
         }
       }
 
       const body = {
         titulo: nuevaTarea.titulo,
         descripcion: nuevaTarea.descripcion || '',
-        fecha_hora_inicio: inicioUTC.toISOString(),
+        fecha_hora_inicio: inicioUTC,
         fecha_hora_fin: finUTC,
         todo_el_dia: nuevaTarea.todo_el_dia,
         intervalo: prepararEntero(nuevaTarea.intervalo, 0),
@@ -258,8 +256,10 @@ export default function Tareas() {
             if (t.todo_el_dia) return false;
             const inicio = new Date(t.fecha_hora_inicio);
             return (
-              inicio.getUTCHours() === horaActual &&
-              inicio.toLocaleDateString() === fecha.toLocaleDateString()
+              inicio.getHours() === horaActual &&
+              inicio.getDate() === fecha.getDate() &&
+              inicio.getMonth() === fecha.getMonth() &&
+              inicio.getFullYear() === fecha.getFullYear()
             );
           });
           const horaLabel = `${horaActual.toString().padStart(2, '0')}:00`;
@@ -287,7 +287,12 @@ export default function Tareas() {
         <button className="btn-agregar" onClick={() => {
           const ahora = new Date();
           const unaHoraDespues = new Date(ahora.getTime() + 60 * 60 * 1000);
-          const formatoInput = (fecha) => fecha.toISOString().slice(0, 16); // yyyy-MM-ddTHH:mm
+          const formatoInput = (fecha) => {
+            const off = fecha.getTimezoneOffset();
+            const local = new Date(fecha.getTime() - off * 60 * 1000);
+            return local.toISOString().slice(0, 16);
+          };
+
 
           setNuevaTarea({
             titulo: '',
