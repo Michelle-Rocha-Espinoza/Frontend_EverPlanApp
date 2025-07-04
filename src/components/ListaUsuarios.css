@@ -1,0 +1,67 @@
+.crud-container {
+  padding: 2rem;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.crud-form {
+  background: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+.crud-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.7rem;
+  border-radius: 0.7rem;
+  border: 1px solid #ccc;
+}
+
+.crud-form button {
+  margin-right: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #AC6C8E;
+  color: white;
+  border: none;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
+.crud-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.crud-list th, .crud-list td {
+  padding: 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.crud-list th {
+  background-color: #f7f7f7;
+}
+
+.crud-list td button {
+  margin-right: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.crear-btn {
+  background-color: #5FA666;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.7rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}

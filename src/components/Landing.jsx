@@ -188,7 +188,7 @@ function Landing() {
                 <p>Diseñar una app inclusiva que facilite la organización de tareas, clases y rutinas, con herramientas de apoyo emocional y recordatorios visuales, para fomentar la autonomía y el bienestar de personas neurodivergentes en su vida académica.</p>
               </div>
             </div>
-            <div className="col-md-6 mb-4" data-aos="fade-left">
+            <div className="col-md-6 mb-4">
               <div className="p-4 bg-vision shadow rounded-4">
                 <i className="bi bi-eye text-success fs-1 mb-3"></i>
                 <h3 className="text-success">Visión</h3>

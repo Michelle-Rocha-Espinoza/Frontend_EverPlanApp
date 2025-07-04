@@ -102,3 +102,172 @@
 .vista-botones .activo:hover {
   background-color: #2f5f6d;
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-contenido {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-contenido h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.modal-contenido label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.modal-contenido input,
+.modal-contenido textarea {
+  width: 100%;
+  padding: 0.4rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.modal-contenido textarea {
+  resize: vertical;
+}
+
+.botones-formulario {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.botones-formulario button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.botones-formulario button:first-child {
+  background-color: #3b7a8a;
+  color: white;
+}
+
+.botones-formulario button:last-child {
+  background-color: #ddd;
+  color: #333;
+}
+/* ✅ Estilo para las tareas */
+.tarea-box {
+  background-color: #3b7a8a;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+  position: relative;
+  min-width: 100px;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.tarea-box:hover {
+  background-color: #2f5f6d;
+}
+
+/* ✅ Tarea completada */
+.tarea-hecha {
+  text-decoration: line-through;
+  background-color: #6c757d;
+  opacity: 0.8;
+}
+
+/* ✅ Agrupación horizontal de tareas por hora */
+.bloque-tarea-multiple {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+/* ✅ Tareas todo el día */
+.tareas-todo-el-dia {
+  margin-bottom: 1rem;
+  background: #eef4f6;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.contenedor-todo-el-dia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+/* ✅ Menú emergente contextual */
+.menu-tarea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.menu-tarea-contenido {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.menu-tarea-contenido p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.menu-tarea-contenido button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.6rem;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.menu-tarea-contenido button:hover {
+  background-color: #e6e6e6;
+}
+
+

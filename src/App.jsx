@@ -2,18 +2,22 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './components/Login';
 import Registro from './components/Registro';
 import Landing from './components/Landing';
+import ListaUsuarios from './components/ListaUsuarios';
+import ListaRutinas from './components/ListaRutinas';
 
 import MainLayout from './layout/MainLayout';
 import Tareas from './pages/Tareas';
+import Pictogramas from './pages/Pictogramas';
+
 
 // Páginas internas como placeholders
 const Perfil = () => <div>Perfil</div>;
 const Horario = () => <div>Horario Personal</div>;
-const Pictogramas = () => <div>Pictogramas</div>;
 const Autorregulacion = () => <div>Autorregulación</div>;
 const Estadisticas = () => <div>Estadísticas</div>;
 const Sugerencias = () => <div>Sugerencias</div>;
 const Legal = () => <div>Información Legal</div>;
+
 
 function App() {
   return (
@@ -37,6 +41,8 @@ function App() {
           <Route path="estadisticas" element={<Estadisticas />} />
           <Route path="sugerencias" element={<Sugerencias />} />
           <Route path="legal" element={<Legal />} />
+          <Route path="usuarios" element={<ListaUsuarios />} />
+          <Route path="rutinas" element={<ListaRutinas />} />
         </Route>
 
         {/* Ruta no encontrada opcional */}
